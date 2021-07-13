@@ -31,6 +31,8 @@ exports.checkAccountPayload = (req, res, next) => {
       message: "budget of account is too large or too small",
     });
   } else {
+    const trimmedName = req.body.name.trim();
+    req.trimmedName = trimmedName;
     next();
   }
 };
