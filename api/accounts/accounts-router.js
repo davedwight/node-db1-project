@@ -33,7 +33,7 @@ router.post('/', checkAccountPayload, async (req, res, next) => {
   }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', checkAccountPayload, async (req, res, next) => {
   try {
     const updatedRecord = await Account.updateById(req.params.id, req.body);
     console.log(updatedRecord);
